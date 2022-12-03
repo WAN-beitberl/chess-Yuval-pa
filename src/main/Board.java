@@ -1,5 +1,7 @@
+package main;
+
 public class Board {
-    private static final int sideLength = 8;
+    public static final int sideLength = 8;
     public static boolean checkIfInRange(int indexRow, int indexCol)
     {
         if (indexRow < 1 || indexCol < 1 || indexRow >sideLength || indexCol > sideLength)
@@ -14,6 +16,7 @@ public class Board {
         System.out.println("    A   B   C   E   F   G   H");
         for(int i=0;i<sideLength;i++)
         {
+            System.out.print(i + "  ");
             for(int j =0; j<sideLength;j++){
 
             }

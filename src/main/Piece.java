@@ -1,3 +1,5 @@
+package main;
+
 abstract class Piece {
     protected char type;
     protected boolean isBlack; // true for black, false for white

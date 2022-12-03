@@ -1,4 +1,7 @@
-public class Rook  extends  Piece{
+package main;
+
+
+public class Rook  extends Piece {
 
     public Rook(boolean isBlack, boolean isOnA) {
         super('R', isBlack);
@@ -14,8 +17,8 @@ public class Rook  extends  Piece{
 
     @Override
     public boolean checkIfMoveLegal(int indexRow, int indexCol) {
-        if (!super.checkIfMoveLegal(indexRow, indexCol))
-            return false;
+       if(!super.checkIfMoveLegal(indexRow, indexCol))
+           return false;
 
         if (this.rowPosition != indexRow && this.colPosition != indexCol){
             return false;

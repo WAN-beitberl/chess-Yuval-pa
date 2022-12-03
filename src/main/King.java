@@ -1,4 +1,5 @@
-public class King extends Piece{
+package main;
+public class King extends Piece {
     public King(boolean isBlack)
     {
         super('K',isBlack);
