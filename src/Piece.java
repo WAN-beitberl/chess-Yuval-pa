@@ -1,20 +1,20 @@
 abstract class Piece {
     protected char type;
-    protected boolean side; // true for black, false for white
+    protected boolean isBlack; // true for black, false for white
     protected boolean isAlive;
     protected int rowPosition;
     protected int colPosition;
-    public Piece(char type, boolean side)
+    public Piece(char type, boolean isBlack)
     {
         this.type = type;
-        this.side = side;
+        this.isBlack = isBlack;
         this.isAlive = true;
     }
     public int getType(){
         return this.type;
     }
-    public boolean getSide(){
-        return this.side;
+    public boolean getIsBlack(){
+        return this.isBlack;
     }
 
     public boolean getIsAlive(){
@@ -27,7 +27,15 @@ abstract class Piece {
         int [] pos ={this.rowPosition,this.colPosition};
         return pos;
     }
-    public abstract boolean checkIfMoveLegal(int indexRow, int indexCol);
+
+    protected boolean checkIfMoveLegal(int indexRow, int indexCol){
+        if (!Board.checkIfInRange(indexRow, indexCol))
+            return false;
+
+        if (indexRow == this.rowPosition && indexCol == this.colPosition)
+            return false;
+        return true;
+    }
     public void movePiece(int indexRow, int indexCol){
         this.rowPosition = indexRow;
         this.colPosition = indexCol;

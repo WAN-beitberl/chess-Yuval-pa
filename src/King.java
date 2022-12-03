@@ -1,20 +1,22 @@
 public class King extends Piece{
-    public King(boolean side)
+    public King(boolean isBlack)
     {
-        super('K',side);
-        if (!side)
-            this.rowPosition = 8;
+        super('K',isBlack);
+        if (isBlack)
+            this.rowPosition = 7;
         else
-            this.rowPosition = 1;
-        this.colPosition = 5;
+            this.rowPosition = 0;
+        this.colPosition = 4;
 
     }
     @Override
     public boolean checkIfMoveLegal(int indexRow, int indexCol) {
         int tempRow = indexRow - this.rowPosition;
         int tempCol = indexCol - this.rowPosition;
-        if (!Board.checkIfInRange(indexRow, indexCol))
+
+        if (!super.checkIfMoveLegal(indexRow, indexCol))
             return false;
+
         switch (tempRow) {
             case (-1):
             case (0):
@@ -23,6 +25,7 @@ public class King extends Piece{
             default:
                 return false;
         }
+
         switch (tempCol){
             case (-1):
             case (0):
